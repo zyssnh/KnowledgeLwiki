@@ -7,6 +7,17 @@ nav:
       - Math/代数/代数.md
       - Math/几何/几何.md
       - Math/数论/数论.md
+  - Computer:
+      - 程序设计: 
+            - Python: Computer/程序设计/Python.md
+            - Java: Computer/程序设计/Java.md
+      - 程序软件:
+            - git:  Computer/程序软件/git.md
+            - docker: Computer/程序软件/docker.md
+      - 计算机网络:
+            - 计算机网络: Computer/计算机网络/计算机网络.md
+            - 网络安全: Computer/计算机网络/网络安全.md
+      # - 数据库: Computer/
 
 
 
@@ -108,8 +119,7 @@ extra_javascript:
 
 # 下面的是需要自定义的内容，请不要修改上方的内容，上面都是在开启各种插件和功能
 
-site_name: 文档的名称 # 设置文档名称
-copyright: Copyright &copy; Python调包侠 # 左下角的版权声明
+copyright: Copyright &copy; # Python调包侠 # 左下角的版权声明
 
 
 
@@ -128,9 +138,9 @@ extra:
           link: https://github.com/zyssnh
           name: GitHub
         - icon: fontawesome/brands/bilibili
-          link: https://space.bilibili.com/282527875
+          link: https://space.bilibili.com/485628053
           name: Bilibili
-        - icon: material/email
-          link: Python调包侠:<271374667@qq.com>
-          name: Email
+      #   - icon: material/email
+      #     link: Python调包侠:<271374667@qq.com>
+      #     name: Email
 
