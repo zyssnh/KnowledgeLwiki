@@ -8,10 +8,17 @@ nav:
       - Math/几何/几何.md
       - Math/数论/数论.md
   - Computer:
+      - 系统软件:
+            - Computer/系统软件/系统软件.md
+            - 分布式系统:
+                  - Computer/系统软件/分布式系统/分布式系统.md
+                  - 分布式计算平台:
+                        - Computer/系统软件/分布式系统/分布式计算平台/分布式计算平台.md 
+                        - Computer/系统软件/分布式系统/分布式计算平台/Hadoop.md
       - 程序设计: 
             - Python: Computer/程序设计/Python.md
             - Java: Computer/程序设计/Java.md
-      - 程序软件:
+      - 程序软件: 
             - git:  Computer/程序软件/git.md
             - docker: Computer/程序软件/docker.md
       - 计算机网络:
@@ -96,14 +103,14 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true # 自定义复选框
     - attr_list
-    - pymdownx.emoji:
-          emoji_index: !!python/name:material.extensions.emoji.twemoji
-          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    # - pymdownx.emoji:
+          # emoji_index: !!python/name:material.extensions.emoji.twemoji
+          # emoji_generator: !!python/name:material.extensions.emoji.to_svg
     - pymdownx.superfences: # 代码块中支持Mermaid
           custom_fences: # 支持 Mermaid
               - name: mermaid
                 class: mermaid
-                format: !!python/name:pymdownx.superfences.fence_code_format
+                # format: !!python/name:pymdownx.superfences.fence_code_format
     - pymdownx.tabbed:
           alternate_style: true
           combine_header_slug: true
