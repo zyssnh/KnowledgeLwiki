@@ -79,7 +79,7 @@ markdown_extensions:
           generic: true
     - toc:
           permalink: true # 固定标题位置为当前位置
-          toc_depth: 3 # 目录深度
+          toc_depth: 6 # 目录深度
     - pymdownx.highlight: # 代码块高亮
           anchor_linenums: true
           linenums: true # 显示行号
