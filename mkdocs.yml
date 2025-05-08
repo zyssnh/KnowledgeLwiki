@@ -14,7 +14,10 @@ nav:
                   - Computer/系统软件/分布式系统/分布式系统.md
                   - 分布式计算平台:
                         - Computer/系统软件/分布式系统/分布式计算平台/分布式计算平台.md 
-                        - Computer/系统软件/分布式系统/分布式计算平台/Hadoop.md
+                        - Hadoop:
+                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Hadoop.md
+                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
+                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Hbase.md
       - 程序设计: 
             - Python: Computer/程序设计/Python.md
             - Java: Computer/程序设计/Java.md
@@ -79,7 +82,7 @@ markdown_extensions:
           generic: true
     - toc:
           permalink: true # 固定标题位置为当前位置
-          toc_depth: 6 # 目录深度
+          toc_depth: 5 # 目录深度
     - pymdownx.highlight: # 代码块高亮
           anchor_linenums: true
           linenums: true # 显示行号

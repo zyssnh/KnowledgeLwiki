@@ -6,9 +6,9 @@ categories:
     - 系统软件
     - 分布式系统
     - 分布式计算平台
+    - Hadoop集群
 ---
-
-# hadoop
+# Hadoop
 
 <!-- 
 ```yaml
@@ -24,7 +24,15 @@ categories:
 
 ## 环境搭建
 
+### 本地式
+
+### 伪分布式
+
 ### 完全分布式
+
+Windows
+
+Windows-11
 
 VMware
 
@@ -157,7 +165,262 @@ username  ALL=(ALL)       NOPASSWD:ALL  # 添加
 
 > `reboot`重启系统
 
+##### 克隆虚拟机
 
+修改其`IP地址`与`主机名称`
+```shell
+# 修改IP地址 此为第x台虚拟机 则:
+[root@hostname]\# vim /etc/sysconfig/network-scripts/ifcfg-ens33
+# 修改
+IPADDR=192.168.10.10x
+[root@hostname]\# vim /etc/hostname
+# 修改
+hadoop10x
+```
+
+##### 安装JDK与配置
+
+将`JDK`传入`/opt/software`
+```shell
+[user@hostname]$ cd /opt/software
+
+# 安装
+[user@hostname]$ tar -zxvf jdk-8u212-linux-x64.tar.gz -C /opt/module/
+
+# 配置
+[user@hostname]$ sudo vim /etc/profile.d/my_env.sh
+
+## 添加
+export JAVA_HOME=/opt/module/jdk1.8.0_212
+export PATH=$PATH:$JAVA_HOME/bin
+
+# 加载
+[user@hostname]$ source /etc/profile
+```
+
+##### 安装Hadoop与配置
+
+将`Hadoop`传入`/opt/software`
+```shell
+[user@hostname]$ cd /opt/software
+
+# 安装
+[user@hostname]$ tar -zxvf hadoop-3.1.3.tar.gz -C /opt/module/
+
+# 配置
+[user@hostname]$ sudo vim /etc/profile.d/my_env.sh
+
+## 增加
+export HADOOP_HOME=/opt/module/hadoop-3.1.3
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+
+# 加载
+[user@hostname]$ source /etc/profile
+```
+
+> ! 分发脚本
+```shell
+[user@hostname]$ cd /opt/module/
+
+# 推送或拉取jdk, hadoop
+[user@hostname]$ scp -r jdk1.8.0_212/ user@hostname:/opt/module/
+[user@hostname]$ scp -r user@hostname:/opt/module/hadoop-3.1.3 ./
+[user@hostname]$ scp -r user@hostname:/opt/module/* user@hostname:/opt/module/
+
+
+```
+
+##### 分发脚本
+
+```shell
+[user@hostname]$ cd /home/user/
+[user@hostname]$ mkdir bin
+[user@hostname]$ cd bin/
+[user@hostname]$ vim xsync
+```
+
+**xsync**
+```shell
+#!/bin/bash
+
+#1. 判断参数个数
+if [ $# -lt 1 ]
+then
+    echo Not Enough Arguement!
+    exit;
+fi
+#2. 遍历集群所有机器
+for host in hadoop102 hadoop103 hadoop104
+do
+    echo ====================  $host  ====================
+    #3. 遍历所有目录，挨个发送
+
+    for file in $@
+    do
+        #4. 判断文件是否存在
+        if [ -e $file ]
+            then
+                #5. 获取父目录
+                pdir=$(cd -P $(dirname $file); pwd)
+
+                #6. 获取当前文件的名称
+                fname=$(basename $file)
+                ssh $host "mkdir -p $pdir"
+                rsync -av $pdir/$fname $host:$pdir
+            else
+                echo $file does not exists!
+        fi
+    done
+done
+```
+
+```shell
+# 增加权限使其可执行
+[user@hostname]$ chmod 777 xsync
+```
+
+###### 分发环境变量
+```shell
+[user@hostname]$ sudo ./bin/xsync /etc/profile.d/my_env.sh
+[user@hostname]$ source /etc/profile
+
+```
+
+##### SSH免密
+```shell
+# 生成密钥
+[user@hostname]$ ssh-keygen -t rsa
+
+# 复制密钥
+[user@hostname]$ ssh-copy-id user@hostname
+
+```
+##### 完全分布式集群
+
+###### 核心配置文件
+
+```shell
+[user@hostname]$ cd $HADOOP_HOME/etc/hadoop
+[user@hostname]$ vim core-site.xml
+```
+`core-site.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <!-- 指定NameNode的地址 -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hadoop102:8020</value>
+    </property>
+
+    <!-- 指定hadoop数据的存储目录 -->
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/opt/module/hadoop-3.1.3/data</value>
+    </property>
+
+    <!-- 配置HDFS网页登录使用的静态用户为atguigu -->
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>user</value>
+    </property>
+</configuration>
+```
+
+```shell
+[user@hostname]$
+[user@hostname]$ vim hdfs-site.xml
+```
+`hdfs-site.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<!-- nn web端访问地址-->
+	<property>
+        <name>dfs.namenode.http-address</name>
+        <value>hadoop102:9870</value>
+    </property>
+	<!-- 2nn web端访问地址-->
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>hadoop104:9868</value>
+    </property>
+</configuration>
+```
+```shell
+[user@hostname]$ vim yarn-site.xml
+```
+`yarn-site.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <!-- 指定MR走shuffle -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+
+    <!-- 指定ResourceManager的地址-->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>hadoop103</value>
+    </property>
+
+    <!-- 环境变量的继承 -->
+    <property>
+        <name>yarn.nodemanager.env-whitelist</name>
+        <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+    </property>
+</configuration>
+```
+
+```shell
+[user@hostname]$ vim mapred-site.xml
+```
+`mapred-site.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<!-- 指定MapReduce程序运行在Yarn上 -->
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>
+```
+
+`workers`
+```shell
+[user@hostname]$ 
+[user@hostname]$ vim workers
+[user@hostname]$ xsync workers
+```
+
+###### 集群分发配置文件
+```shell
+[user@hostname]$ cd /opt/module/hadoop-3.1.3/etc
+[user@hostname]$ xsync hadoop/
+```
+
+
+
+
+##### 启动集群
+
+**初始化**
+```shell
+[user@hostname]$ 
+
+```
 
 
 
