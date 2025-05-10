@@ -19,8 +19,15 @@ nav:
                               - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
                               - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Hbase.md
       - 程序设计: 
-            - Python: Computer/程序设计/Python.md
-            - Java: Computer/程序设计/Java.md
+            - Python: 
+                  - Computer/程序设计/Python/Python.md
+                  - 基础语法:
+                        - Computer/程序设计/Python/基础语法/基础语法.md
+                  - 第三方库:
+                        - Computer/程序设计/Python/第三方库/第三方库.md
+                        - Computer/程序设计/Python/第三方库/Django.md
+            - Java: 
+                  - Computer/程序设计/Java.md
       - 程序软件: 
             - git:  Computer/程序软件/git.md
             - docker: Computer/程序软件/docker.md
