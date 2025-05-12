@@ -6,6 +6,7 @@
 ```shell
 [user@hostname]$ django-admin startproject MyProject [Path]
 ```
+
 - `MyProject: `为创建的项目名称
 - `[Path]: `为创建指定项目选择路径(可选) : 留空则默认创建到当前目录
 
