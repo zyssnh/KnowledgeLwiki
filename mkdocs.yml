@@ -10,27 +10,43 @@ nav:
   - Computer:
       - 系统软件:
             - Computer/系统软件/系统软件.md
-            - 分布式系统:
-                  - Computer/系统软件/分布式系统/分布式系统.md
-                  - 分布式计算平台:
-                        - Computer/系统软件/分布式系统/分布式计算平台/分布式计算平台.md 
-                        - Hadoop:
-                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Hadoop.md
-                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
-                              - Computer/系统软件/分布式系统/分布式计算平台/Hadoop/Hbase.md
-      - 程序设计: 
+            - 操作系统:
+                  - Computer/系统软件/操作系统/操作系统.md
+                  - 分布式系统:
+                        - Computer/系统软件/操作系统/分布式系统/分布式系统.md
+                        - 分布式计算平台:
+                              - Computer/系统软件//操作系统/分布式系统/分布式计算平台/分布式计算平台.md 
+                              - Hadoop:
+                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Hadoop.md
+                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
+                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Hbase.md
+                  - 服务器操作系统:
+                        - Computer/系统软件/操作系统/服务器操作系统/服务器操作系统.md
+                        - Linux:
+                              - Computer/系统软件/操作系统/服务器操作系统/Linux/Linux.md
+                              - CentOS:
+                                    - Computer/系统软件/操作系统/服务器操作系统/Linux/CentOS/CentOS.md
+                  - 桌面操作系统:
+                        - Computer/系统软件/操作系统/桌面操作系统/桌面操作系统.md
+                        - Linux:
+                              - Computer/系统软件/操作系统/桌面操作系统/Linux/Linux.md
+                        - MacOS:
+                              - Computer/系统软件/操作系统/桌面操作系统/MacOS/MacOS.md
+                        - Windows:
+                              - Computer/系统软件/操作系统/桌面操作系统/Windows/Windows.md
+      - 程序设计语言: 
             - Python: 
-                  - Computer/程序设计/Python/Python.md
+                  - Computer/程序设计语言/Python/Python.md
                   - 基础语法:
-                        - Computer/程序设计/Python/基础语法/基础语法.md
+                        - Computer/程序设计语言/Python/基础语法/基础语法.md
                   - 第三方库:
-                        - Computer/程序设计/Python/第三方库/第三方库.md
-                        - Computer/程序设计/Python/第三方库/Django.md
+                        - Computer/程序设计语言/Python/第三方库/第三方库.md
+                        - Computer/程序设计语言/Python/第三方库/Django.md
             - Java: 
-                  - Computer/程序设计/Java.md
-      - 程序软件: 
-            - git:  Computer/程序软件/git.md
-            - docker: Computer/程序软件/docker.md
+                  - Computer/程序设计语言/Java.md
+      - 应用软件: 
+            - git:  Computer/应用软件/git.md
+            - docker: Computer/应用软件/docker.md
       - 计算机网络:
             - 计算机网络: Computer/计算机网络/计算机网络.md
             - 网络安全: Computer/计算机网络/网络安全.md

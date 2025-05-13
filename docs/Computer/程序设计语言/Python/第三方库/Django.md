@@ -26,7 +26,7 @@ MyProjectFolder
 
 ### 创建应用
 
-> `! 如指定了项目路径 : 进入`
+> `进入项目文件夹`
 ```shell
 [user@hostname]$ python manage.py startapp MyApp
 ```
@@ -181,3 +181,5 @@ DATABASES = {
 [user@hostname]$ python manage.py runserver [Port]
 ```
 - `[Port]: `此为指定端口(可选)
+
+

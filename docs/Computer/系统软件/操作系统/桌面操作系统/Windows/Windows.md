@@ -14,6 +14,9 @@
 **事件查看器**
 `win + R << eventvwr.msc`
 
+**开机自启动软件文件夹**
+`win + R << shell:startup`
+
 
 ###### PowerShell
 
