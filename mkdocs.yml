@@ -1,59 +1,56 @@
-site_name: My Docs
+site_name: My DoCS/
 
 nav:
   - 主页: index.md
   - 数学: 
-      - Math/分析/分析.md
-      - Math/代数/代数.md
-      - Math/几何/几何.md
-      - Math/数论/数论.md
-  - 计算机科学:
-      - 计算机系统: 
-            - Computer/ComputerSystem/index.md
-      - 系统软件:
-            - Computer/系统软件/系统软件.md
-            - 操作系统:
-                  - Computer/系统软件/操作系统/操作系统.md
-                  - 分布式系统:
-                        - Computer/系统软件/操作系统/分布式系统/分布式系统.md
-                        - 分布式计算平台:
-                              - Computer/系统软件/操作系统/分布式系统/分布式计算平台/分布式计算平台.md 
-                              - Hadoop:
-                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Hadoop.md
-                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
-                                    - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Hbase.md
-                  - 服务器操作系统:
-                        - Computer/系统软件/操作系统/服务器操作系统/服务器操作系统.md
-                        - Linux:
-                              - Computer/系统软件/操作系统/服务器操作系统/Linux/Linux.md
-                              - CentOS:
-                                    - Computer/系统软件/操作系统/服务器操作系统/Linux/CentOS/CentOS.md
-                  - 桌面操作系统:
-                        - Computer/系统软件/操作系统/桌面操作系统/桌面操作系统.md
-                        - Linux:
-                              - Computer/系统软件/操作系统/桌面操作系统/Linux/Linux.md
-                        - MacOS:
-                              - Computer/系统软件/操作系统/桌面操作系统/MacOS/MacOS.md
-                        - Windows:
-                              - Computer/系统软件/操作系统/桌面操作系统/Windows/Windows.md
-      - 程序设计语言: 
-            - Python: 
-                  - Computer/程序设计语言/Python/Python.md
-                  - 基础语法:
-                        - Computer/程序设计语言/Python/基础语法/基础语法.md
-                  - 第三方库:
-                        - Computer/程序设计语言/Python/第三方库/第三方库.md
-                        - Computer/程序设计语言/Python/第三方库/Django.md
-            - Java: 
-                  - Computer/程序设计语言/Java.md
-      - 应用软件: 
-            - git:  Computer/应用软件/git.md
-            - docker: Computer/应用软件/docker.md
-      - 计算机网络:
-            - 计算机网络: Computer/计算机网络/计算机网络.md
-            - 网络安全: Computer/计算机网络/网络安全.md
-      # - 数据库: Computer/
+    - Content/Math/index.md
+    - 数论:
+      - Content/Math/NumberTheory/index.md
+    - 代数学:
+      - Content/Math/Algebra/index.md
+    - 几何学:
+      - Content/Math/Geometry/index.md
+    - 拓扑学:
+      - Content/Math/Topology/index.md
+    - 数学分析:
+      - Content/Math/MathematicalAnalysis/index.md
+      - 微积分: 
+        - Content/Math/MathematicalAnalysis/Calculus/index.md
+        - 微分学:
+          - Content/Math/MathematicalAnalysis/Calculus/DifferentialCalculus/index.md
+        - 积分学:
+          - Content/Math/MathematicalAnalysis/Calculus/IntegralCalculus/index.md
+    - 概率论与数理统计:
+      - Content/Math/PTMS/index.md
 
+  - 计算机科学:
+    - 计算机系统: 
+      - Content/CS/ComputerSystem/index.md
+      - 计算机软件系统:
+        - Content/CS/ComputerSystem/ComputerSoftwareSystem/index.md
+        - 操作系统:
+          - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/OS/index.md
+      #     - 主要功能:
+          - 常见类型:
+            - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/OS/CommonTypes/index.md
+            - 分布式系统: 
+              - hadoop:
+                - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/OS/CommonTypes/Distributed/Hadoop/Hadoop.md
+                - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/OS/CommonTypes/Distributed/Hadoop/Zookeeper.md
+                - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/OS/CommonTypes/Distributed/Hadoop/Hbase.md
+              
+        - 数据库管理系统:
+          - Content/CS/ComputerSystem/ComputerSoftwareSystem/SystemSoftware/DBMS/index.md
+
+      - 计算机硬件系统:
+        - Content/CS/ComputerSystem/ComputerHardwareSystem/index.md
+
+    - 软件工程:
+      - Content/CS/SoftwareEngineering/index.md
+      - 程序设计语言:
+        - Content/CS/SoftwareEngineering/ProgrammingLanguage/index.md
+        - Python: Content/CS/SoftwareEngineering/ProgrammingLanguage/Python/index.md
+        - Java: Content/CS/SoftwareEngineering/ProgrammingLanguage/Java/index.md
 
 
 theme:
@@ -151,6 +148,7 @@ markdown_extensions:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - js/custom.js
 
 # 下面的是需要自定义的内容，请不要修改上方的内容，上面都是在开启各种插件和功能
 
@@ -159,7 +157,7 @@ copyright: Copyright &copy; # Python调包侠 # 左下角的版权声明
 
 
 # plugins:
-#     - mkdocstrings:
+#     - mkdoCS/trings:
 #           handlers:
 #               python:
 #                   paths: [src]
@@ -167,7 +165,7 @@ copyright: Copyright &copy; # Python调包侠 # 左下角的版权声明
 #     # - offline # 离线本地搜索，和navigation.instant不能同时启用
 
 extra:
-    # generator: false  #删除页脚显示“使用 MkDocs 材料制造”
+    # generator: false  #删除页脚显示“使用 MkDoCS/ 材料制造”
     social:
         - icon: fontawesome/brands/github
           link: https://github.com/zyssnh
