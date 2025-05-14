@@ -1,13 +1,15 @@
 site_name: My Docs
 
 nav:
-  - Home: index.md
-  - Math: 
+  - 主页: index.md
+  - 数学: 
       - Math/分析/分析.md
       - Math/代数/代数.md
       - Math/几何/几何.md
       - Math/数论/数论.md
-  - Computer:
+  - 计算机科学:
+      - 计算机系统: 
+            - Computer/ComputerSystem/index.md
       - 系统软件:
             - Computer/系统软件/系统软件.md
             - 操作系统:
@@ -15,7 +17,7 @@ nav:
                   - 分布式系统:
                         - Computer/系统软件/操作系统/分布式系统/分布式系统.md
                         - 分布式计算平台:
-                              - Computer/系统软件//操作系统/分布式系统/分布式计算平台/分布式计算平台.md 
+                              - Computer/系统软件/操作系统/分布式系统/分布式计算平台/分布式计算平台.md 
                               - Hadoop:
                                     - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Hadoop.md
                                     - Computer/系统软件/操作系统/分布式系统/分布式计算平台/Hadoop/Zookeeper.md
